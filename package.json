@@ -16,6 +16,12 @@
   ],
   "author": "cowen zheng",
   "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0",
+    "download-git-repo": "^3.0.2",
+    "ora": "^4.0.4"
+  },
   "bugs": {
     "url": "https://github.com/my-cli/csh-cli/issues"
   },
