@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/my-cli/csh-cli/issues"
   },
-  "homepage": "https://github.com/my-cli/csh-cli#readme"
+  "homepage": "https://github.com/my-cli/csh-cli#readme",
+  "devDependencies": {
+    "inquirer": "^7.1.0"
+  }
 }

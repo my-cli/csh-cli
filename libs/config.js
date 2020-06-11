@@ -1,3 +1,26 @@
 const repUrl='github:my-cli/game-gulp-template',
-    cmdNpm=process.platform==='win32'?'npm.cmd':'npm';
-module.exports={repUrl,cmdNpm}
+    cmdNpm=process.platform==='win32'?'npm.cmd':'npm',
+    inquireQuests=[
+        {
+            type:'list',
+            message:'请选择要使用的打包工具',
+            name:'type',
+            choices:[
+                'gulp',
+                'webpack',
+                'grunt'
+            ]
+        },
+        {
+            type:'input',
+            message:'请输入媒体资源存放路径',
+            name:'mediadir',
+            default:'http://static.web.sdo.com/'
+        },
+        {
+            type:'confirm',
+            message:'是否安装项目依赖？',
+            name:'isinstall'
+        }
+    ];
+module.exports={repUrl,cmdNpm,inquireQuests}
