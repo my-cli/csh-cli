@@ -13,3 +13,11 @@
     - `csh-cli help`：查看`csh-cli`工具帮助。
     - `csh-cli version`:查看`csh-cli`工具版本号。
 #### 更新日志：
+
+- 2020 / 06 / 12：
+
+  更新内容：
+
+  - 主体框架修改，新增`webpack  / gulp`选项。
+  - 删除模板文件中的`README.md`文件。
+  - 添加`Inquirer`交互命令行询问是否立刻安装依赖。

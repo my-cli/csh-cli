@@ -2,7 +2,7 @@ const { promisify } = require('util'),
     { Log, Error,Spawn} = require('./utils'),
     { clone } = require('./download'),
     fs = require('fs'),
-    {typeSelect,mediaInput,isInstall} =require('./ask'),
+    {typeSelect,isInstall} =require('./ask'),
     { repUrl,cmdNpm} = require('./config'),
     dest = process.cwd();
 module.exports = async () => {
@@ -11,12 +11,14 @@ module.exports = async () => {
         Error('----敬请期待----');
     }else{
         await clone(repUrl, dest);
-        await Spawn(cmdNpm, ['install'], { cwd: dest });
+        fs.unlinkSync(`${dest}/README.md`);
+        let status=await isInstall();
+        if(status.isinstall){
+            await Spawn(cmdNpm, ['install'], { cwd: dest });
+            Log("安装完成");
+        }else{
+            process.exit();
+            Log("模板代码已下载");
+        }
     }
-    // Error('----敬请期待----')
-    // if(type=='webpack'){
-    //     Error('----敬请期待----')
-    // }
-    
-    // Log(`安装完成`);
 }
