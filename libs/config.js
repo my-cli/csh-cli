@@ -24,5 +24,4 @@ const repUrl='github:my-cli/game-gulp-template',
             name:'isinstall'
         }
     ];
-    console.log(tempDir)
 module.exports={repUrl,cmdNpm,inquireQuests,tempDir}
