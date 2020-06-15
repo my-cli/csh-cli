@@ -1,6 +1,6 @@
 {
   "name": "csh-cli",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "gulp template of pages",
   "main": "index.js",
   "bin": {

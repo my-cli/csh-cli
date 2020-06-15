@@ -10,6 +10,7 @@ module.exports = async (name) => {
         return false;
     }
     let res = await typeSelect();
+    const dest= `${process.cwd()}/${name}`;
     if (res.type == "webpack" || res.type == "grunt") {
         Error('----敬请期待----');
     } else {
