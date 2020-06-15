@@ -1,9 +1,9 @@
 const { promisify } = require('util'),
     { Log, Error, Spawn } = require('./utils'),
-    { repUrl, cmdNpm } = require('./config'),
+    { repUrl, cmdNpm,tempDir } = require('./config'),
     { typeSelect, isInstall } = require('./ask'),
+    fs=require('fs'),
     { clone } = require('./download');
-const fs = require('fs');
 module.exports = async (name) => {
     if (fs.existsSync(`${process.cwd()}/${name}`)) {
         Error("该目录已经存在！");
@@ -14,7 +14,6 @@ module.exports = async (name) => {
         Error('----敬请期待----');
     } else {
         await clone(repUrl, name);
-        fs.unlinkSync(`${process.cwd()}/${name}/README.md`);
         let status = await isInstall();
         if (status.isinstall) {
             await Spawn(cmdNpm, ['install'], { cwd: dest });

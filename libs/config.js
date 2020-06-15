@@ -1,5 +1,6 @@
 const repUrl='github:my-cli/game-gulp-template',
     cmdNpm=process.platform==='win32'?'npm.cmd':'npm',
+    tempDir=process.env[process.platform==='darwin'?'HOME':'USERPROFILE']+"\\.template",
     inquireQuests=[
         {
             type:'list',
@@ -23,4 +24,5 @@ const repUrl='github:my-cli/game-gulp-template',
             name:'isinstall'
         }
     ];
-module.exports={repUrl,cmdNpm,inquireQuests}
+    console.log(tempDir)
+module.exports={repUrl,cmdNpm,inquireQuests,tempDir}
