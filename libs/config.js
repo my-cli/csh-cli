@@ -1,4 +1,5 @@
-const repUrl='github:my-cli/game-gulp-template',
+const gulprepUrl='github:my-cli/game-gulp-template',
+    webpackrepUrl='github:my-cli/game-webpack-template',
     cmdNpm=process.platform==='win32'?'npm.cmd':'npm',
     tempDir=process.env[process.platform==='darwin'?'HOME':'USERPROFILE']+"\\.template",
     inquireQuests=[
@@ -8,8 +9,7 @@ const repUrl='github:my-cli/game-gulp-template',
             name:'type',
             choices:[
                 'gulp',
-                'webpack',
-                'grunt'
+                'webpack'
             ]
         },
         {
@@ -24,4 +24,4 @@ const repUrl='github:my-cli/game-gulp-template',
             name:'isinstall'
         }
     ];
-module.exports={repUrl,cmdNpm,inquireQuests,tempDir}
+module.exports={gulprepUrl,webpackrepUrl,cmdNpm,inquireQuests,tempDir}

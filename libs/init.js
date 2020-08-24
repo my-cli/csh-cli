@@ -1,22 +1,22 @@
-const { promisify } = require('util'),
-    { Log, Error,Spawn} = require('./utils'),
+const { Log, Spawn } = require('./utils'),
     { clone } = require('./download'),
-    {typeSelect,isInstall} =require('./ask'),
-    { repUrl,cmdNpm,tempDir} = require('./config'),
+    { typeSelect, isInstall } = require('./ask'),
+    { gulprepUrl, webpackrepUrl, cmdNpm } = require('./config'),
     dest = process.cwd();
-module.exports = async () => {
-    let res=await typeSelect();
-    if(res.type=="webpack" || res.type=="grunt"){
-        Error('----敬请期待----');
-    }else{
-        await clone(repUrl, dest);
-        let status=await isInstall();
-        if(status.isinstall){
-            await Spawn(cmdNpm, ['install'], { cwd: dest });
-            Log("安装完成");
-        }else{
-            process.exit();
-            Log("模板代码已下载");
-        }
+const _selectHandle = async () => {
+    let select = await typeSelect();
+    let type = select.type,
+        template = select.type == "webpack" ? webpackrepUrl : gulprepUrl;
+    await clone(type, template, dest);
+    let status = await isInstall();
+    if (status.isInstall) {
+        await Spawn(cmdNpm, ['install'], { cwd: dest });
+        Log("安装完成");
+    } else {
+        process.exit();
+        Log("模板代码已下载");
     }
+}
+module.exports = () => {
+    _selectHandle();
 }
