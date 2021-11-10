@@ -1,6 +1,6 @@
 {
   "name": "csh-cli",
-  "version": "3.0.0",
+  "version": "4.0.2",
   "description": "common cli of multiple page",
   "main": "index.js",
   "bin": {
@@ -30,7 +30,6 @@
     "ncp": "^2.0.0",
     "ora": "^4.0.4"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "bugs": {
     "url": "https://github.com/my-cli/csh-cli/issues"
   },
